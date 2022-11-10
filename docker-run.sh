@@ -1,14 +1,19 @@
 #!/bin/sh -e
 
 if [ ! -f "$CONFIG_PATH" ]; then
-	echo 'No config found'
+	echo 'No config path set, exiting...'
+	exit 1
+fi
+
+if [ ! -f "$REGISTRATION_PATH" ]; then
+	echo 'No registration path set, exiting...'
 	exit 1
 fi
 
 args="$@"
 
-if [ ! -f "$REGISTRATION_PATH" ]; then
-	echo 'No registration found, generating now'
+if [ ! -f "$REG_GENERATE" ]; then
+	echo -e 'Flag for registration file ENABLED, creating file at ${REGISTRATION_PATH}'
 	args="-r"
 fi
 
