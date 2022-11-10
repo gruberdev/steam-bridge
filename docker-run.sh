@@ -12,7 +12,7 @@ fi
 
 args="$@"
 
-if [ ! -f "$REG_GENERATE" ]; then
+if [ ! -z "$REG_GENERATE" ]; then
 	echo -e 'Flag for registration file ENABLED, creating file at ${REGISTRATION_PATH}'
 	args="-r"
 fi
